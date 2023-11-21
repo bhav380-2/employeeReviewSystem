@@ -106,12 +106,12 @@ To run the Employee Review System web app locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your/repository.git
+   git clone https://github.com/bhav380-2/employeeReviewSystem.git
 
 2. Install dependencies:
    ```bash
 
-   cd /path-to-repository/employee-review-system
+   cd /path-to-repository/employeeReviewSystem
    npm install
 
 3. Run the application:
