@@ -1,0 +1,273 @@
+<link rel="stylesheet" href="/css/admin.css">
+<div id="admin_container">
+
+    
+    <!-- _______________________ side Navigation ____________________ -->
+    <div>
+        <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+
+        <div class="navigation">
+
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name=""></ion-icon>
+                        </span>
+                        <span class="title">Admin page</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="title">Mails</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/users/destroy-session">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- ______________________________________________Main ______________________________ -->
+    <div class="main">
+        <!-- ________________________assign-reviews ______________________________-->
+        <form action="/admin/assign-review-task" method="Post" id="review-form">
+
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <input id="emp-email" type="email" name="emp_email" placeholder="Review Employee " required>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <button type="submit">Assign</button>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <input id="reviewer-email" type="email" name='reviewer_email' placeholder="Reviewer's email" required>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="help-circle-outline"></ion-icon>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+        <!--________________________add Employee section_____________________________ -->
+        <section id="add-employee-container">
+
+            <div>
+                <button id="add-employee-option">
+                    <ion-icon name="person-add-outline"></ion-icon> <span>Add Employee </span>
+                </button>
+
+                <form action="/admin/add-employee" method="POST" id="add-employee-form">
+
+                    <div id="flex">
+                        <div class="inputBox">
+                            <span> Name : </span>
+                            <input id="name" type="text" placeholder="Enter employee name" name="name" required>
+                        </div>
+                        <div class="inputBox">
+                            <span>Email : </span>
+                            <input id="email" type="email" placeholder="Enter employee email" name="email" required>
+                        </div>
+
+                        <div class="gender">
+                            <span>Gender : </span>
+                            <div>
+                                <div>
+                                    <input class="radio" type="radio" name="gender" value="Male" id="male" required>
+                                    <label for="male"> Male</label>
+                                </div>
+
+                                <div>
+                                    <input class="radio" type="radio" name="gender" value="Female" id="female" required>
+                                    <label for="female"> Female</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inputBox">
+                            <span>Password : </span>
+                            <input id="password" type="password" placeholder="********" name="password" required>
+                        </div>
+                        <div class="inputBox">
+                            <span>Confirm Password : </span>
+                            <input id="confirm_password" type="password" placeholder="********" name="confirm_password"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <div id="btn-container">
+                        <input id="submit-btn" type="submit" value="Add" class="btn">
+                    </div>
+
+                </form>
+
+                <div id="message">
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ____________________________employees section___________________ -->
+        <section id="employees">
+
+            <header id="employees-header">
+                <i class="fa-solid fa-user-tie"></i>
+                Employees
+            </header>
+
+            <div class="employee-details">
+
+                <%for(emp of Employees){%>
+
+                    <div id="employee-box-<%=emp.id%>"class="employee-box">
+                        <div class="image">
+                            <img src='./img/male.png' alt="" class="emp-img">
+                        </div>
+
+                        <div class="content-box">
+
+                            <form action="/admin/update-employee/<%=emp.id%>" method="POST" id="employee-<%=emp.id%>">
+                                <div>
+                                    <div class="emp-name">
+                                        <label for="name">Name : </label>
+                                        <input type="text" name="name" value="<%=emp.name%>" disabled required>
+                                    </div>
+
+                                    <div class="emp-email">
+                                        <label for="name">Email : </label>
+                                        <input type="email" name="email" value="<%=emp.email%>" disabled required>
+                                    </div>
+
+                                    <div class="emp-gender" data-employeeGender="<%=emp.gender%>">
+
+                                        <span>Gender : </span>
+
+                                        <input class="radio" type="radio" name="gender" id="male-<%=emp.id%>"
+                                            value="Male" disabled required>
+                                        <label for="male-<%=emp.id%>"> Male</label>
+                                        <input class="radio" type="radio" name="gender" id="female-<%=emp.id%>"
+                                            value="Female" required disabled>
+                                        <label for="female-<%=emp.id%>"> Female</label>
+                                    </div>
+
+                                    <div class="make-admin">
+                                        <input type="checkbox" id="emp-<%=emp.id%>" name="access" disabled
+                                            value="admin">
+                                        <label for="emp-<%=emp.id%>"> admin</label><br>
+                                    </div>
+
+                                </div>
+
+                                <div class="buttons">
+
+                                    <span class="update-employee-btn">
+                                        <a data-empId="<%=emp.id%>"> <i class="fa-solid fa-pen"></i> </a>
+                                    </span>
+
+                                    <span id="remove-employee"><a data-removeEmployee="true"
+                                            href="/admin/remove-employee/<%=emp.id%>"> <i class="fa-solid fa-trash"></i>
+                                        </a></span>
+
+                                    <button class="save-changes" type="submit">
+                                        save
+
+                                    </button>
+
+                                </div>
+
+                                <a style="display:inline-block" href="/admin/emp-reviews/<%=emp.id%>"
+                                    class="btn review-btn">
+                                    <!-- <i class="fa-regular fa-eye"></i> -->
+                                    <i class="fa-solid fa-eye"></i>
+                                    See Reviews
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+
+                    <%}%>
+            </div>
+
+
+            <div class="btn-container">
+                <button class="custom-btn"> Load More </button>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+
+<!-- ___________________________________________ Scripts _____________________________________  -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="/js/admin.js"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

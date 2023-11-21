@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="/css/employee.css">
+
+<div id="employee-page">
+
+    <div id="review-colleouges-container">
+
+        <%if(locals.user && ToReview.length>0){%>
+
+            <div id="review-colleouges">
+
+                <header id="review-colleouges-header">
+                    <p>Review</p>
+                    <p>
+                        <span>Your</span><span> Colleouges</span>
+                    </p>
+                </header>
+
+                <!-- ________________________review cards container_____________________ -->
+                <div id="review-cards-container">
+                    <!-- ________________________carousel____________________ -->
+                    <div id="carousel" ver="document.body.style.overflow='hidden';"
+                        onmuseout="document.body.style.overflow='auto';">
+                        <div class="menu">
+                            <div class="menu--wrapper">
+
+                                <%for(emp of ToReview){%>
+
+                                    <div class="menu--item" id="menu-item-<%=emp.id%>">
+
+
+                                        <!-- _____________review card________________ -->
+
+                                        <div class="review-card">
+                                            <p>
+                                                <span>
+                                                    <i class="fa-solid fa-user-tie"></i>
+                                                    Name &nbsp;&nbsp;&nbsp;:
+                                                </span>
+
+                                                <span>
+                                                    <%=emp.name%>
+                                                </span>
+                                            </p>
+
+                                            <p>
+                                                <span>
+                                                    <i class="fa-solid fa-envelope"></i>
+                                                    Email &nbsp; :
+                                                </span>
+                                                <span>
+                                                    <%= emp.email%>
+                                                </span>
+                                            </p>
+
+                                            <p>
+                                                <span>
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Gender &nbsp;:
+                                                </span>
+                                                <span>
+                                                    <%= emp.gender%>
+                                                </span>
+                                            </p>
+
+                                            <!-- ______________review form____________ -->
+
+                                            <form action="/employee/review/<%=emp.id%>" method="POST"
+                                                class="review-form">
+                                                <textarea name="review" class="review"
+                                                    placeholder="Write Review..."></textarea>
+                                                <button type="submit" class="review-button">
+                                                    <i class="fa-solid fa-paper-plane"></i>
+                                                    Send Review
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <%}%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        <%}else{%>
+
+                <div id="no-assigned-reviews">
+                    <span>No </span><span>Reviews </span> <span>Assigned</span> <span>!!!</span>
+                </div>
+        <%}%>
+
+    </div>
+</div>
+
+<!-- __________________________javascript_____________________ -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- ______________custom js file______________ -->
+<script src="/js/employee.js"></script>

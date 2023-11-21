@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="/css/reviews.css">
+
+<div id="reviews-page">
+    <header id="reviews-page-header">
+        <p>
+            <i class="fa-solid fa-user-tie"></i>
+            <span>
+                <span>
+                    Name&nbsp;:
+                </span>
+                <span>
+                    <%= Employee.name%>
+                </span>
+            </span>
+        </p>
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            <span>
+                <span>
+                    Email&nbsp;:&nbsp;
+                </span>
+
+                <span>
+                    <%= Employee.email%>
+                </span>
+            </span>
+        </p>
+    </header>
+
+    <div>
+
+ 
+
+    <%if(Employee.reviews.length!=0){%>
+
+        <!-- ________________reviews container__________________ -->
+
+        <div id="reviews-container">
+
+            <h2>
+                Reviews
+            </h2>
+
+            <ul id="reviews-list">
+
+                <%for(r of Employee.reviews){%>
+                    <li id="review-<%=r.id%>" class="review">
+                        <form action="/admin/save-updated-review/<%=r.id%>" method="post" class="review-form"
+                            id="review-form-<%=r.id%>">
+                            <div class="info">
+                                <textarea name="review_text" class="review-text" type="text" disabled><%=r.review%>
+                                 </textarea>
+                                <div>
+
+                                    <% if(r.reviewBy){%>
+
+                                        <div>
+                                            <i class="fa-regular fa-user"></i>
+                                            <%=r.reviewBy.name%> <br>
+                                        </div>
+    
+                                        <div>
+                                            <i class="fa-regular fa-envelope"></i>
+                                            <span class="email">
+                                                <%=r.reviewBy.email%>
+                                            </span>
+                                        </div>
+
+
+                                    <!-- if employee who reviewed deleted by admin -->
+                                    <%}else{%>  
+
+                                        <div>
+                                            <i class="fa-regular fa-user"></i>
+                                            not found <br>
+                                        </div>
+    
+                                        <div>
+                                            <i class="fa-regular fa-envelope"></i>
+                                            <span class="email">
+                                               not found
+                                            </span>
+                                        </div>
+                                    <%}%>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <a href="" data-reviewId="<%=r.id%>" class="update-btn"><i
+                                        class="fa-solid fa-pencil"></i></a>
+                                <a href="/admin/delete-review/<%=r.id%>" class="delete-btn"><i
+                                        class="fa-regular fa-trash-can"></i></a>
+                                <button type="submit" id="save-changes-btn-<%=r.id%>"
+                                    class="save-changes-btn">save</button>
+                            </div>
+                        </form>
+                    </li>
+                    <%}%>
+            </ul>
+
+
+            <!-- ______________load more button______________ -->
+
+            <div class="btn-container">
+                <button class="custom-btn"> Load More </button>
+            </div>
+        </div>
+
+        <%}else{%>
+
+            <div id="no-reviews">
+                <span>No </span><span>Reviews </span> <span>!!!</span>
+            </div>
+
+            <%}%>
+
+        <div id="hidden"></div>
+            
+        <!-- ________________add review container________________ -->
+
+        <div id="add-review-container">
+            <header>
+                <i class="fa-solid fa-comment-dots"></i>
+                Add Review
+            </header>
+
+            <form id="add-review-form" action="/admin/add-employee-review/<%=Employee.id%>" method="POST">
+
+                <textarea id="review" name="review" placeholder="Write Review..."></textarea>
+                <button type="submit" id="add-review-button">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Send Review
+                </button>
+            </form>
+        </div>
+</div>
+
+
+<!-- ______________javascript_______________ -->
+<script src="/js/reviews.js"></script>

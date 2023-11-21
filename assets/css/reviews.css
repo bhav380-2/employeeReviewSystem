@@ -1,0 +1,720 @@
+
+/* _________________________________________review-page_________________________________________________*/
+#reviews-page {
+    margin-top: 195px;
+}
+
+#reviews-page-header {
+    margin-bottom: 160px;
+}
+
+#reviews-page-header p {
+    display: flex;
+    align-items: center;
+    width: 640px;
+    margin: auto;
+    margin-bottom: 15px;
+    font-size: 1.49rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#reviews-page-header p i {
+    color: #1c7ecef1;
+    position: relative;
+    top: 2.5px;
+    font-size: 1.85rem;
+    width: 43px;
+    margin-right: 12px;
+}
+
+#reviews-page-header p span {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 2.1px;
+}
+
+#reviews-page-header p span span:nth-child(1) {
+    font-weight: bold;
+    display: inline-block;
+    width: 119px;
+}
+
+#reviews-page-header p span span:nth-child(2) {
+    display: inline-block;
+    word-break: break-all;
+    font-size: 1.25rem;
+}
+
+#reviews-container {
+    margin-top: 85px;
+    padding-left: 80px;
+    padding-right: 70px;
+}
+
+#reviews-container h2 {
+    font-size: 2.3rem;
+    margin-left: 110px;
+    margin-bottom: 30px;
+}
+
+
+/*___________________________reviews container____________________________*/
+#reviews-container h2::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    margin-left: 4px;
+    margin-top: -75px;
+    background: url("/img/d.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 173px;
+    height: 135px;
+}
+
+#reviews-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 79%;
+    padding-top: 20px;
+}
+
+.review::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    margin-top: 21px;
+    background: url("/img/r.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 95px;
+    height: 57px;
+}
+
+.review {
+    box-shadow: 2px 2px 2px 2px gray;
+    padding: 20px;
+    min-height: 135px;
+    height: auto;
+    margin-top: 20px;
+    display: none;
+}
+
+.review:nth-child(1),
+.review:nth-child(2),
+.review:nth-child(3),
+.review:nth-child(4) {
+    display: block;
+}
+
+.review .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review .info textarea {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: unset;
+    width: 65%;
+    padding: 7.2px;
+    min-height: 80px;
+}
+
+.review .info>div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 195px;
+    position: relative;
+    top: 20px;
+    font-size: 0.95rem;
+}
+
+.review .info .line {
+    position: relative;
+    left: -6.5px;
+    top: 10.8px;
+}
+
+.review .info div .email {
+    word-break: break-all;
+    position: relative;
+    top: 2px;
+    font-size: 0.82rem;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.review .info div i {
+    font-size: 0.89rem;
+    margin-right: 6px;
+}
+
+.review .info div div:nth-child(2) i {
+    position: relative;
+    top: 2.65px;
+    font-size: 0.8rem;
+}
+
+/* ________________________update ,delete and save button________________________*/
+.buttons {
+    width: 250px;
+    position: relative;
+    top: 15px;
+}
+
+.buttons a {
+    display: inline-block;
+    width: 25px;
+    margin-right: 25px;
+}
+
+.buttons a i {
+    font-size: 1.1rem;
+}
+
+.buttons a i:hover {
+    font-size: 1.2rem;
+    color: red;
+}
+
+.save-changes-btn {
+    display: none;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid blue;
+    color: blue;
+}
+
+/*_______________________________load more btn________________________________*/
+.btn-container {
+    width: 75%;
+}
+
+.custom-btn {
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+    border: 0.1px solid rgba(0, 0, 0, 0.849);
+    background-color: white;
+    color: black;
+    width: 400px;
+    height: 70px;
+    border-radius: 5px;
+    padding: 7px;
+    transition: 0.35s ease-in-out;
+    font-size: 1.35rem;
+}
+
+.custom-btn:hover {
+    width:465px;
+}
+
+
+/*__________________________________no reviews_________________________________*/
+#no-reviews {
+
+    width: 570px;
+    display: flex;
+    font-size: 3.17rem;
+    margin: auto;
+    position: relative;
+    top: 30px;
+    margin-top: 55px;
+}
+
+#no-reviews span {
+    display: block;
+    margin-left: 30px;
+    letter-spacing: 0.27rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#no-reviews span::first-letter {
+    display: block;
+    font-size: 5rem;
+    letter-spacing: 0.38rem;
+}
+
+#no-reviews span:nth-child(3) {
+    position: relative;
+    top: 10px;
+    left: 3px;
+    font-size: 4.4rem;
+}
+
+
+/*___________________________add review container___________________________*/
+#add-review-container {
+    margin-top: 250px;
+    width: 40%;
+    margin-left: 100px;
+}
+
+#add-review-container header {
+    font-size: 1.85rem;
+    margin-bottom: 25px;
+}
+
+#add-review-form {
+    width: 100%;
+}
+
+#review {
+    padding: 25px;
+    display: block;
+    height: 133px;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#add-review-button {
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    width: 295px;
+    height: 58px;
+    border: 0.5px solid black;
+    outline: none;
+    background: transparent;
+    border-radius: 12px;
+}
+
+
+/* ______________________________________responsive design_______________________________________*/
+@media only screen and (max-width:1200px) {
+
+
+    #reviews-list {
+        width: 96%;
+    }
+
+    .review .info>div {
+        width: 195px;
+        position: relative;
+        top: 20px;
+        left: 11.5px;
+        font-size: 0.95rem;
+    }
+
+    .review .info div .email {
+        position: relative;
+        top: 2px;
+        font-size: 0.82rem;
+    }
+}
+
+
+@media only screen and (max-width:1080px) {
+
+
+
+
+    .custom-btn {
+        width: 330px;
+        font-size: 1.2rem;
+    }
+
+    .custom-btn:hover {
+        width: 400px;
+    }
+
+    #no-reviews {
+        font-size: 2.8rem;
+    }
+
+    #no-reviews span {
+        margin-left: 23px;
+        letter-spacing: 0.255rem;
+    }
+
+    #no-reviews span::first-letter {
+        font-size: 4.7rem;
+        letter-spacing: 0.35rem;
+    }
+
+    #no-reviews span:nth-child(3) {
+        top: 10px;
+        left: 3px;
+        font-size: 4.1rem;
+    }
+}
+
+
+@media only screen and (max-width:992px) {
+
+    #reviews-list {
+        width: 99%;
+    }
+
+    .review .info textarea {
+        font-size: 0.84rem;
+        width: 64.5%;
+    }
+
+    .review .info>div {
+        width: 123px;
+        font-size: 0.69rem;
+    }
+
+    .review .info div .email {
+        font-size: 0.6rem;
+    }
+
+    .review .info div i {
+        font-size: 0.7rem;
+    }
+
+    .review .info div div:nth-child(2) i {
+        font-size: 0.68rem;
+    }
+
+    #no-reviews {
+        width: 460px;
+        font-size: 2.3rem;
+    }
+
+    #no-reviews span {
+        margin-left: 23px;
+        letter-spacing: 0.25rem;
+    }
+
+    #no-reviews span::first-letter {
+        font-size: 4.3rem;
+        letter-spacing: 0.33rem;
+    }
+
+    #no-reviews span:nth-child(3) {
+        top: 13px;
+        font-size: 3.6rem;
+    }
+
+    .custom-btn {
+        height:67px;
+        width: 265px;
+        font-size: 1.1rem;
+    }
+
+    .custom-btn:hover {
+        width: 295px;
+    }
+}
+
+@media only screen and (max-width:720px) {
+
+    #reviews-page-header p {
+        width: 428px;
+        font-size: 1.05rem;
+    }
+
+    #reviews-page-header p i {
+        font-size: 1.28rem;
+        width: 25px;
+    }
+
+    #reviews-page-header p span span:nth-child(1) {
+        width: 78px;
+    }
+
+    #reviews-page-header p span span:nth-child(2) {
+        font-size: 0.97rem;
+    }
+
+    #reviews-container h2::before {
+        margin-left: 11px;
+        margin-top: -50px;
+        width: 120px;
+        height: 110px;
+    }
+
+    #reviews-container h2 {
+        font-size: 2.15rem;
+        margin-left: 80px;
+        margin-bottom: 30px;
+    }
+
+    #reviews-list {
+        width: 100%;
+    }
+
+    .review {
+        width: 81.5vw;
+        margin-left: -39px;
+    }
+
+    .review::before {
+        left: 10px;
+        margin-top: 29px;
+        width: 55px;
+        height: 35px;
+    }
+
+    .review .info textarea {
+        font-size: 0.745rem;
+        width: 64.5%;
+    }
+
+    .review .info>div {
+        top: 65px;
+        margin-right: -7px;
+        width: 106px;
+        font-size: 0.58rem;
+    }
+
+    .review .info div .email {
+        font-size: 0.52rem;
+    }
+
+    .review .info div i {
+        font-size: 0.61rem;
+    }
+
+    .review .info div div:nth-child(2) i {
+        font-size: 0.54rem;
+    }
+
+    #no-reviews {
+        width: 400px;
+        font-size: 1.8rem;
+    }
+
+    #no-reviews span {
+        margin-left: 23px;
+        letter-spacing: 0.2rem;
+    }
+
+    #no-reviews span::first-letter {
+        font-size: 3.75rem;
+        letter-spacing: 0.3rem;
+    }
+
+    #no-reviews span:nth-child(3) {
+        top: 13px;
+        font-size: 3rem;
+    }
+
+    .custom-btn {
+        position: relative;
+        left: 15px;
+        width: 205px;
+        height:57px;
+        font-size: 1rem;
+    }
+
+    .custom-btn:hover {
+        width: 230px;
+    }
+
+    #add-review-container {
+        margin-top: 200px;
+        width: 58%;
+        margin-left: 100px;
+    }
+
+    #add-review-container header {
+        font-size: 1.85rem;
+        margin-bottom: 25px;
+    }
+
+    #add-review-form {
+        width: 100%;
+    }
+
+    #review {
+        height: 133px;
+        width: 100%;
+    }
+
+    #add-review-button {
+        margin-top: 40px;
+        width: 300px;
+        height: 58px;
+    }
+}
+
+@media only screen and (max-width:480px) {
+
+    #reviews-page-header p {
+        display: flex;
+        align-items: center;
+        width: 302px;
+    }
+
+    #reviews-page-header p i {
+        margin-right: 6.8px;
+        font-size: 1.03rem;
+        width: 20px;
+    }
+
+
+    #reviews-page-header p span span:nth-child(1) {
+        width: 62px;
+        font-size: 0.84rem;
+    }
+
+    #reviews-page-header p span span:nth-child(2) {
+        font-size: 0.81rem;
+    }
+
+    #reviews-container {
+        padding: 0;
+    }
+
+    #reviews-container h2::before {
+        margin-left: 15px;
+        margin-top: -43px;
+        width: 118px;
+        height: 93px;
+    }
+
+    #reviews-container h2 {
+        font-size: 1.8rem;
+        margin-left: 150px;
+        margin-bottom: 30px;
+    }
+
+    .review {
+        width: 96vw;
+        max-width: 395px;
+        position: relative;
+        left: -27px;
+        margin: auto;
+        margin-bottom: 25px;
+        ;
+        box-shadow: 1px 1px 1px 1px gray;
+        padding: 0;
+        padding-top: 22px;
+        height: 180px;
+    }
+
+    .review form {
+        width: 100%;
+    }
+
+    .review::before {
+        display: none;
+    }
+
+    .review .info textarea {
+        font-size: 0.7rem;
+        padding-left: 15px;
+        padding-top: 12.5px;
+        width: 68%;
+    }
+
+    .review .info>div {
+        height: 50px;
+        position: relative;
+        top: 18px;
+        margin-right: 15px;
+        width: 95.5px;
+        font-size: 0.515rem;
+    }
+
+    .review .info div .email {
+        font-size: 0.49rem;
+    }
+
+    .review .info div i {
+        font-size: 0.58rem;
+    }
+
+    .review .info div div:nth-child(2) i {
+        font-size: 0.51rem;
+    }
+
+    #no-reviews {
+        width: 270px;
+        position: relative;
+        left:-3px;
+        top:-10px;
+        font-size: 1.35rem;
+    }
+
+    #no-reviews span {
+        margin-left: 23px;
+        letter-spacing: 0.17rem;
+    }
+
+    #no-reviews span::first-letter {
+        font-size: 2.5rem;
+        letter-spacing: 0.3rem;
+    }
+
+    #no-reviews span:nth-child(3) {
+        top: 12.25px;
+        font-size: 1.65rem;
+        left:0;
+        margin-left:5px;
+    }
+
+    .buttons {
+        border-top: 0.5px solid black;
+        border-right: 0.5px solid black;
+        border-left: 0.5px solid black;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        top: 18px;
+        left: 0px;
+        height: 60.8px;
+        padding: 18px;
+    }
+
+    .buttons a i {
+        font-size: 0.9rem;
+    }
+
+    .buttons a i:hover {
+        font-size: 1rem;
+    }
+
+    .custom-btn {
+        left: 35px;
+        margin-top: 55px;
+        width: 179px;
+        height: 49.5px;
+        font-size: 0.965rem;
+    }
+
+    .custom-btn:hover {
+        width: 199px;
+    }
+
+    #add-review-container {
+        width: 85%;
+        margin: auto;
+        margin-top: 135px;
+    }
+
+    #add-review-container header {
+        font-size: 1.85rem;
+        margin-bottom: 25px;
+    }
+
+    #review {
+        margin-top: 35px;
+        height: 120px;
+        width: 88%;
+    }
+
+    #add-review-button {
+        margin-top: 45px;
+        width: 240px;
+        height: 50px;
+    }
+}

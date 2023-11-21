@@ -1,0 +1,1424 @@
+
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,400&display=swap');
+
+/* ____________Globals ___________ */
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  box-sizing: border-box;
+}
+
+/*_________ root values__________ */
+:root {
+  --container-color: #1a1e21;
+  --second-color: rgb(0, 4, 5);
+  --text-color: #172317;
+  --bg-color: #f1f1e8;
+  --main-color: #d36a9f;
+  --black: #222;
+  --white: #fff;
+  --light-black: #777;
+  --light-white: #fff9;
+  --dark-bg: rgba(0, 0, 0, .7);
+  --light-bg: #eee;
+  --border: .1rem solid var(--black);
+  --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+  --text-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .3);
+  --blue: #2a2185;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+::selection {
+  color: var(--bg-color);
+  background: var(--second-color);
+}
+
+/*_________________universal styles___________________*/
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: #fff;
+}
+
+/*___________setting footer display to none____________*/
+
+#footer-container {
+  display: none;
+}
+
+/* ______________________________________________admin_container______________________________________________*/
+#admin_container {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  max-height: 700px;
+  margin-top: 90px;
+  position: relative;
+  left: 0px;
+}
+
+/*__________________________________admin side navigation_______________________________ */
+.navigation {
+  z-index: 1;
+  display: none;
+  position: fixed;
+  left: 0px;
+  top: 110px;
+  width: 250px;
+  height: 100%;
+  background: var(--blue);
+  border-left: 10px solid var(--blue);
+  transition: 0.5s;
+  overflow: hidden;
+  margin-right: 40px;
+}
+
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:first-child {
+  position: relative;
+  left: -34px;
+  top: 16px;
+}
+
+.navigation ul li:first-child a .title {
+  font-size: 1.28rem;
+  font-family: cursive;
+}
+
+.navigation ul li:first-child a .title::first-letter {
+  font-size: 2.2rem;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+
+
+/* ______________________________________main___________________________________________*/
+.main {
+  position: relative;
+  width: calc(100vw - 250px);
+  padding-left: 18rem;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+  /* border:2px solid green; */
+}
+
+.toggle {
+  position: fixed;
+  z-index: 2;
+  top: 105.5px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  background-color: rgb(251, 251, 251);
+  border-bottom-right-radius: 10px;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/* _____________________________________review-form___________________________________*/
+
+#review-form .cardBox {
+  margin: auto;
+  position: relative;
+  top: 15px;
+  margin-top: 50px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-evenly;
+}
+
+#review-form .cardBox .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: var(--white);
+  height: 200px;
+  width: 190px;
+  margin: 8px;
+  /* background-color: rgb(129, 29, 29); */
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.082);
+}
+
+#review-form .cardBox .card:nth-child(2n+1) {
+  height: 260px;
+  width: 280px;
+}
+
+#review-form .cardBox .card:nth-child(2n) {
+  height: 100px;
+  width: 156px;
+}
+
+#review-form .cardBox .card:nth-child(2n) button {
+  width: 90%;
+  height: 50px;
+  border: 0.1px solid rgba(0, 0, 0, 0.432);
+  border-radius: 10px;
+  background: red;
+  opacity: 0.88;
+  color: white;
+  font-weight: 500;
+}
+
+#review-form .cardBox .card:nth-child(2n+1) input {
+  background: transparent;
+  background: white;
+  border: none;
+  border: 0.5px solid black;
+  position: relative;
+  left: 6.2px;
+  padding: 9px;
+  padding-left: 18px;
+  /* border:2px solid red; */
+  border-radius: 12px;
+  width: 94%;
+  height: 55px;
+}
+
+#review-form .cardBox .card:nth-child(2n+1):hover input {
+  background-color: white;
+}
+
+#review-form .cardBox .card:nth-child(2n) button:hover {
+  background-color: white;
+  color: black;
+}
+
+#review-form .cardBox .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+  position: relative;
+}
+
+#review-form .cardBox .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+  position: relative;
+  top: 9.4px;
+}
+
+#review-form .cardBox .card .iconBx {
+  font-size: 4.91rem;
+  color: var(--black2);
+  position: relative;
+  top: 18px;
+}
+
+#review-form .cardBox .card:nth-child(2n+1):hover{
+  background-color: var(--blue);
+  color:white;
+  opacity: 0.98;
+
+}
+
+#review-form .cardBox .card:nth-child(2n+1):hover .iconBx{
+  color:white;
+}
+/* 
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+  color: var(--white);
+} */
+
+/*____________________________________add-employee-container_______________________________________*/
+
+#add-employee-container {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  width: 700px;
+  margin-top: 80px;
+  margin-bottom: 200px;
+}
+
+#add-employee-container div button {
+  margin: auto;
+  margin-bottom: 50px;
+  width: 725px;
+  height: 70px;
+  border-radius: 20px;
+
+  background-color: var(--blue);
+  opacity: 0.98;
+  color: white;
+
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.215);
+  font-size: 1.3rem;
+  position: relative;
+  top: 150px;
+
+}
+
+#add-employee-container div button ion-icon {
+
+  position: relative;
+  top: 4.5px;
+  font-size: 1.6rem;
+  margin-right: 9.8px;
+}
+
+
+
+#add-employee-container div button:hover{
+  background-color: white;
+  color: rgba(0, 0, 0, 0.897);
+  border: 0.5px solid rgba(0, 0, 0, 0.863);
+}
+
+
+/* __________________________add Employee form__________________________*/
+
+#add-employee-form {
+  margin: auto;
+  padding: 2rem;
+  background: rgba(211, 211, 211, 0.092);
+  height: 540px;
+  width: 88%;
+  box-shadow: 1px 1px 1px 1px black;
+  position: relative;
+  top: 175px;
+  display: none;
+}
+
+#add-employee-form #flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#add-employee-form #flex .inputBox {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+}
+
+#add-employee-form #flex .inputBox input {
+  width: 375px;
+  height: 42px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.92rem;
+  color: var(--light-black);
+  text-transform: none;
+  border: var(--border);
+}
+
+#add-employee-form #flex .inputBox input:focus {
+  background: var(--black);
+  color: var(--white);
+}
+
+#add-employee-form #flex .inputBox input:focus::placeholder {
+  color: var(--light-white);
+}
+
+#add-employee-form #flex .inputBox span {
+  color: var(--light-black);
+  display: inline-block;
+  width: 157px;
+  position: relative;
+  top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#add-employee-form .gender {
+  display: flex;
+  justify-content: space-between;
+  color: var(--light-black);
+  height: 70px;
+}
+
+#add-employee-form .gender>div {
+  width: 375px;
+  display: flex;
+}
+
+#add-employee-form .gender>div div {
+  margin-right: 30px;
+}
+
+#add-employee-form .gender span {
+  margin-left: auto;
+  margin-right: auto;
+  width: 157px;
+}
+
+/* _________form submit button________*/
+#btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  position: relative;
+  top: -60px;
+}
+
+#btn-container #submit-btn {
+  border: 0.5px solid black;
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+#btn-container #submit-btn:hover {
+  background-color: white;
+  font-size: 1.4rem;
+}
+
+
+/* ______________________________________employees section___________________________________________ */
+
+#employees-header {
+  position: relative;
+  top: 115px;
+  margin-bottom: 205px;
+  font-size: 3.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center
+}
+
+#employees-header i {
+  color: rgba(0, 0, 0, 0.781);
+}
+
+.employee-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 1000px;
+  column-gap: 9rem;
+  row-gap: 4.5rem;
+  margin: auto;
+  top: 80px;
+  margin-bottom: 20px;
+}
+
+.employee-box {
+
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  background: var(--white);
+  /* width:390px; */
+  width: 373px;
+  height: 450px;
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 70px;
+}
+
+.employee-box:nth-child(1),
+.employee-box:nth-child(2),
+.employee-box:nth-child(3),
+.employee-box:nth-child(4) {
+  display: flex;
+}
+
+.image {
+  height: 205px;
+  margin-bottom: 0px;
+}
+
+.emp-img {
+  position: relative;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .25s linear;
+  border-bottom: 0.1px solid black;
+}
+
+.employee-box .content-box {
+  height: 245px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.content-box form .btn {
+  display: block;
+  margin-left: 25px;
+  width: 82%;
+  background-color: black;
+  color: white;
+  position: relative;
+  top: 12px;
+}
+
+.content-box .btn:hover {
+  background-color: lightgray;
+  color: black;
+  font-weight: bold;
+  border: 0.1px solid black;
+}
+
+.content-box input {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.862rem;
+}
+
+/*________edit emp name and email__________*/
+.emp-name,
+.emp-email {
+  word-wrap: break-word;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  font-size: 1.01rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  margin-top: -12px;
+  position: relative;
+  top: -6px;
+  color: var(--black);
+}
+
+.emp-email {
+  top: -1px;
+}
+
+.emp-name label,.emp-email label{
+  width:65px;
+  left:0;
+
+}
+
+.emp-name input,
+.emp-email input {
+  border: none;
+  outline: none;
+  padding: 7px;
+  color: black;
+  margin-left: 5px;
+  width: 253.5px;
+}
+
+
+/*_____________ edit emp gender___________*/
+.emp-gender {
+  display: inline-block;
+  position: relative;
+  top: 2.8px;
+}
+.emp-gender span {
+  margin-left:12px;
+  font-weight: 600;
+  position: relative;
+  top:-2px;
+  width:74px;
+}
+.emp-gender input {
+  outline: none !important;
+}
+
+/*______________make admin_______________*/
+.make-admin {
+  display: inline-block;
+  margin-left: 37px;
+  position: relative;
+  top: 2.8px;
+  font-weight: 600;
+}
+
+.make-admin input {
+  outline: none !important;
+  position: relative;
+  left: -5px;
+}
+
+.opacity {
+  opacity: 0.73;
+  font-size: 0.975rem;
+}
+
+/* _________edit ,delete, save buttons_____*/
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  top: 3.2px;
+  height: 39px;
+  width: 90%;
+  gap: 10px;
+}
+
+.buttons i {
+  position: relative;
+  font-size: 1.16rem;
+  color: #194fbd;
+  margin-right: 10px;
+
+}
+
+.buttons i:hover {
+  font-size: 1.19rem;
+  color: red;
+
+}
+
+.buttons .save-changes {
+  border: none;
+  outline: none;
+  color: blue;
+  display: none;
+  outline: #2a2185;
+}
+
+.update-employee-btn {
+  font-size: .78rem;
+  font-weight: 500;
+}
+
+
+/* _________________Load more button______________*/
+.custom-btn {
+  display: block;
+  margin: auto;
+  position: relative;
+  top: -25px;
+  border: 0.5px solid black;
+  background-color: white;
+  color: black;
+  width: 165px;
+  height: 58px;
+  border-radius: 5px;
+  padding: 7px;
+  transition: 0.35s ease-in-out;
+}
+
+.custom-btn:hover {
+  width: 260px;
+}
+
+
+
+/*__________________________________________________________responsive design_______________________________________________*/
+@media only screen and (max-width:1320px) {
+
+  .main {
+    padding-left: 3.5rem;
+  }
+
+  .about {
+    margin-top: -20px;
+  }
+
+  .about .imgBx {
+    position: relative;
+    width: 50%;
+    height: 500px;
+  }
+
+  .about .imgBx img {
+    height: 420px;
+  }
+
+  .container,
+  .about {
+    width: 92%;
+  }
+
+  #title-text {
+    font-size: 0.88rem;
+  }
+
+  .employee-details {
+    margin-top: 16px;
+    column-gap: 8.5rem;
+    width: 920px
+  }
+}
+
+
+@media (max-width: 1280px) {
+
+
+  #admin_container {
+    margin-top: 130px;
+  }
+
+  .navigation {
+    z-index: 1;
+  }
+
+  .main {
+    width: calc(100vw - 40px);
+    left: 0;
+  }
+
+  .cardBox {
+    position: relative;
+    left: 0;
+    top: 50px;
+    margin: auto;
+    width: 100%;
+  }
+
+  #reports-container,
+  #blogs-container {
+    width: 69vw;
+    left: 0;
+    margin-left: 0px;
+    margin: auto;
+  }
+
+  #reports-container {
+    margin-top: 58px;
+  }
+
+  #blogs-container {
+    margin-top: 35px;
+  }
+
+  #reports-container div button,
+  #blogs-container div button {
+    width: 100%;
+  }
+
+}
+
+@media only screen and (max-width:992px) {
+
+  .main {
+    width: 100%;
+  }
+
+  .cardBox {
+    top: 80px;
+  }
+
+  .cardBox .card {
+    height: 160px;
+    width: 140px;
+    padding: 0px;
+  }
+
+  .cardBox .card .numbers {
+    top: 10px;
+    font-size: 1.76rem;
+  }
+
+  .cardBox .card .cardName {
+    font-size: 1.01rem;
+    top: 14px;
+
+  }
+
+  .cardBox .card .iconBx {
+    font-size: 3.1rem;
+    top: 15px;
+  }
+
+  .employee-details {
+    width: 10vw;
+    width: 92%;
+  }
+
+  .employee-box {
+    position: relative;
+    width: 80vw;
+    max-width: 715px;
+    height: 475px;
+    left: -13px;
+    margin: auto;
+  }
+
+  .image {
+    height: 255px;
+  }
+
+  .emp-img {
+    position: relative;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    transition: .25s linear;
+    border-bottom: 0.1px solid black;
+  }
+
+  #add-employee-container div button {
+    margin: auto;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    width: 600px;
+    height: 70px;
+    border-radius: 20px;
+    background-color: var(--blue);
+    opacity: 0.98;
+    color: white;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.215);
+    font-size: 1.3rem;
+  }
+
+  #add-employee-container div button ion-icon {
+    position: relative;
+    top: 4.5px;
+    font-size: 1.6rem;
+    margin-right: 9.8px;
+  }
+  .content-box .btn {
+    width: 82%;
+    background-color: black;
+    color: white;
+    position: relative;
+    top: 0px;
+  }
+
+  .content-box .btn:hover {
+    background-color: lightgray;
+    color: black;
+    font-weight: bold;
+    border: 0.1px solid black;
+  }
+  .emp-name,
+  .emp-email {
+    font-size: 1rem;
+  }
+
+  .emp-gender span {
+    margin-right: 7px;
+  }
+
+  .btn-container .custom-btn {
+    margin-top: 100px;
+  }
+
+  
+}
+
+@media only screen and (max-width:720px) {
+
+  #admin_container {
+    margin-top: 90px;
+  }
+
+  .cardBox {
+    width: 95%;
+  }
+
+  .cardBox .card:nth-child(1),
+  .cardBox .card:nth-child(3) {
+    height: 182px !important;
+    width: 33% !important;
+    margin: 23px;
+    min-width: 200px;
+  }
+
+  .cardBox .card input {
+    margin-left: 7px;
+    width: 84% !important;
+  }
+  #add-employee-form {
+    width: 93%;
+    max-width: 475px;
+    margin-top: 70px;
+    padding-left: 1rem;
+    position: relative;
+    top: 165px;
+  }
+
+  #add-employee-form #flex .inputBox span ,#add-employee-form .gender span{
+    width: 100px;
+    font-size: 0.895rem;
+  }
+
+  #add-employee-form #flex .inputBox input, #add-employee-form .gender>div {
+    width: 217px;
+    font-size: 0.82rem;
+    margin-right: 11px;
+  }
+
+  #add-employee-form #flex .inputBox:nth-child(5) span {
+    font-size: 0.7rem;
+    width: auto;
+    position: relative;
+    left: 1.7px;
+  }
+
+  #add-employee-form .gender {
+    display: flex;
+    justify-content: space-between;
+    color: var(--light-black);
+    position: relative;
+    height: 70px;
+    left:0px;
+  }
+  
+  #add-employee-form .gender>div div {
+    margin-right: 30px;
+  }
+
+  #btn-container #submit-btn {
+    width: 90.5%;
+    height: 60px;
+    font-size: 0.99rem
+  }
+
+  #reports-container,
+  #blogs-container {
+    width: 81vw;
+    height: 75px;
+  }
+
+  #reports-container {
+    margin-top: 35px;
+  }
+
+  #blogs-container {
+    margin-top: 65px;
+  }
+
+  #add-employee-container {
+    width: 100%;
+  }
+  #add-employee-container div button {
+    display: block;
+    width: 63%;
+    height: 66.5px;
+    font-size: 1.15rem;
+    margin: auto;
+  }
+
+  #add-employee-option ion-icon {
+    height: 1.35rem;
+    width: 1.35rem;
+  }
+
+  #add-employee-option span {
+    position: relative;
+    top: 1px;
+  }
+
+  #employees-header {
+    font-size: 2.65rem;
+  }
+
+  .employee-details {
+    width: 100%;
+    row-gap: 1.82rem;
+
+  }
+
+  .employee-box {
+    position: relative;
+    width: 85vw;
+    max-width: 485px;
+    height: 458px;
+    left: -3px;
+    margin-left: 0;
+    margin: auto;
+  }
+
+  .image {
+    height: 233px;
+  }
+
+  .emp-name,
+  .emp-email {
+    font-size: 0.97rem;
+  }
+
+  .content-box form .btn {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:480px) {
+
+  #admin_container {
+    margin-top: 130px;
+    max-height: 1200px;
+  }
+
+
+
+
+
+  .cardBox {
+    top: 43.5px;
+    width: 100%
+  }
+
+  .cardBox .card:nth-child(1),
+  .cardBox .card:nth-child(3) {
+    height: 170x !important;
+  }
+
+  #review-form .cardBox .card input {
+    height: 44.5px !important;
+    font-size: 0.92rem;
+    top:-3px;
+    width:100%;
+  }
+
+  .cardBox .card .numbers {
+    font-size: 1.87rem;
+  }
+
+  .cardBox .card .cardName {
+    top: 18px;
+    font-size: 1.1rem;
+  }
+
+  .cardBox .card .iconBx {
+    font-size: 3.2rem;
+  }
+
+  #add-employee-container div button {
+    width: 88%;
+    max-width: 360px;
+  }
+
+  #add-employee-form {
+    width: 95%;
+    max-width: 390px;
+    padding-left: 0.4rem;
+    position: relative;
+    top: 165px;
+  }
+
+
+  #add-employee-form #flex .inputBox span,#add-employee-form .gender span {
+    width: 72px;
+    font-size: 0.82rem;
+
+  }
+
+  #add-employee-form #flex .inputBox input ,#add-employee-form .gender>div {
+    width: 67%;
+    min-width: 178px;
+    font-size: 0.79rem;
+    margin-right: -24px;
+  }
+
+  #add-employee-form #flex .inputBox:nth-child(5) span {
+    font-size: 0.8rem;
+    width: 80px;
+    left: 3.5px;
+    top: -1px;
+  }
+
+  #btn-container #submit-btn {
+    height: 51px;
+    font-size: 0.92rem;
+    margin-left: 30px;
+  }
+
+  #reports-container {
+    margin-top: 40px;
+  }
+
+  #blogs-container {
+    margin-top: 90px;
+  }
+
+  .main {
+    padding-left: 1rem;
+  }
+
+  .employee-details {
+    width: 100%;
+  }
+
+  .employee-box {
+    position: relative;
+    width: 100vw;
+    max-width: 470px;
+    height: 415px;
+    margin-left: 0;
+    margin: auto;
+  }
+
+  .image {
+    height: 175px;
+  }
+  #employees-header {
+    font-size: 2rem;
+  }
+
+  .content-box form .btn {
+    margin-left: 11px;
+    width: 92%;
+  }
+
+  .emp-name,
+  .emp-email {
+
+    margin-bottom: 5.5px;
+    margin-left: 3px;
+    display: flex;
+    align-items: center;
+    font-size: calc(10.5px + 0.83vw);
+  }
+
+  .emp-name input,
+  .emp-email input {
+    position: relative;
+    top: -2.58px;
+    font-size: 0.745rem;
+    width: 228px;
+  }
+
+  .emp-gender {
+    margin-left: 12px;
+    font-size: calc(11px + 0.87vw);
+    margin-right: 0px;
+  }
+
+  .emp-gender span {
+    margin-left:7.5px;
+    font-weight: 600;
+    position: relative;
+    top:-2px;
+    width:74px;
+  }
+
+  .make-admin {
+    font-size: calc(11px + 0.87vw);
+    margin-left: 11px;
+  }
+
+  .btn-container .custom-btn {
+    height: 49px;
+    width: 185px;
+  }
+
+  .btn-container .custom-btn:hover {
+    width: 220px;
+  }
+
+  .btn-container .custom-btn {
+    margin-top: 70px;
+  }
+}
+/* 
+
+
+@media (max-width: 991px) {
+  .main {
+    width: 100%;
+  }
+
+  .cardBox {
+    top: 80px;
+  }
+
+  .cardBox .card {
+    height: 160px;
+    width: 140px;
+    padding: 0px;
+  }
+
+  .cardBox .card .numbers {
+    top: 10px;
+    font-size: 1.76rem;
+  }
+
+  .cardBox .card .cardName {
+    font-size: 1.01rem;
+    top: 14px;
+
+  }
+
+  .cardBox .card .iconBx {
+    font-size: 3.1rem;
+    top: 15px;
+  }
+}
+
+
+@media (max-width: 720px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+
+  #admin_container {
+
+    margin-top: 130px;
+
+    max-height: 1200px;
+  }
+
+
+  .cardBox {
+    top: 43.5px;
+    width: 100%
+  }
+
+
+  .cardBox .card:nth-child(1),
+  .cardBox .card:nth-child(3) {
+
+    height: 165px !important;
+
+  }
+
+  .cardBox .card input {
+    height: 44.5px !important;
+    font-size: 0.92rem;
+    ;
+  }
+
+
+  .cardBox .card .numbers {
+    font-size: 1.87rem;
+  }
+
+  .cardBox .card .cardName {
+    top: 18px;
+    font-size: 1.1rem;
+
+
+  }
+
+  .cardBox .card .iconBx {
+    font-size: 3.2rem;
+  }
+
+  #add-employee-container div button {
+    width: 88%;
+    max-width: 360px;
+  }
+
+
+  #add-employee-form {
+    width: 95%;
+    max-width: 390px;
+    padding-left: 0.4rem;
+    position: relative;
+    top: 165px;
+  }
+
+
+  #add-employee-form #flex .inputBox span,#add-employee-form .gender span {
+    width: 72px;
+    font-size: 0.82rem;
+
+  }
+
+  #add-employee-form #flex .inputBox input ,#add-employee-form .gender>div {
+    width: 67%;
+    min-width: 178px;
+    font-size: 0.79rem;
+    margin-right: -24px;
+  }
+
+  #add-employee-form #flex .inputBox:nth-child(5) span {
+    font-size: 0.8rem;
+    width: 80px;
+    left: 3.5px;
+    top: -1px;
+  }
+
+  #btn-container #submit-btn {
+    height: 51px;
+    font-size: 0.92rem;
+    margin-left: 30px;
+  }
+
+  #reports-container {
+    margin-top: 40px;
+  }
+
+  #blogs-container {
+    margin-top: 90px;
+  }
+
+  /* #blogs-container div button,
+  #reports-container div button {
+    height: 90px;
+    font-size: 1.37rem;
+  } */
+
+

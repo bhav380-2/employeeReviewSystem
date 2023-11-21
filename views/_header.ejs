@@ -1,0 +1,51 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+
+<nav id="nav-bar" >
+
+  <a id="try" class="navbar-brand  ml-5" href="#">
+    <img style="border: 1px solid #5e818a26" id="emp-review-system-logo" src="/img/logo2.png" alt="logo"
+      width="50" height="15px" class="d-inline-block align-text-top">
+    <div id="employee-review-system">
+      <div>Employee</div>
+      <div>Review&nbsp;System</div>
+
+    </div>
+  </a>
+  <div id="nav-items">
+
+    <%if(locals.user && locals.user.access=='admin'){%>
+      <a href="/"><i class="fa-solid fa-house"></i> <span>Home</span></a>
+      <a href="#add-employee-container"><i class="fa-solid fa-user-plus"></i><span>Add&nbsp;Employee</span></a>
+      <a href="#employees"><i class="fa-solid fa-eye"></i> <span>View&nbsp;Employees</span></a>
+      <a href="#"><i class="fa-solid fa-newspaper"></i> <span>Assgin Task</span></a>
+    <%}else if(locals.user){%>
+      <a href="/"><i class="fa-solid fa-house"></i> <span>Home</span></a>
+      <a href="#"><i class="fa-solid fa-newspaper"></i> <span>Assigned Reviews</span></a>
+    <%}%>
+
+      <li class="nav-item dropdown">
+        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          More
+        </button>
+        <ul class="dropdown-menu" id="dropdown-menu">
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-info"></i> About</a></li>
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-phone"></i> Contact&nbsp;Us</a></li>
+
+          <% if(locals.user){ %>
+              <li><a  id="username" class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> <%=locals.user.name%></a></li>
+              <li><a class="dropdown-item" href="/users/destroy-session"><i class="fa-solid fa-arrow-left-long"></i> Sign&nbsp;out</a></li>
+            <% }else {%>
+              <li><a class="dropdown-item" href="/users/login" ><i class="fa-solid fa-arrow-right-long"></i> Sign&nbsp;in</a></li>
+              <li><a class="dropdown-item" href="/users/register" ><i class="fa-solid fa-arrow-right-long"></i> Sign&nbsp;up</a></li>
+              <%}%>
+        </ul>
+      </li>
+  </div>
+  <div id="menu-bar"> <i class="fa-solid fa-bars"></i></div>
+</nav>
+
+
+<!-- _______________javascript__________________ -->
+<script src="/js/_header.js"></script>
