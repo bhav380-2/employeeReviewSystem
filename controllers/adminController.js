@@ -59,6 +59,16 @@ export default class AdminController {
                 }
             }
 
+           // returns if reivew is already assigned to reviewer
+            for(let toReviewid of reviewer.toReview){
+                
+                if(toReviewid==employee.id){
+                    return res.status(400).json({
+                        message:"review already assigned!!!"
+                    })
+                }
+            }
+
             // pushing reviewee id in reveiwer's toReview array
             reviewer.toReview.push(employee._id);
             reviewer.save();
