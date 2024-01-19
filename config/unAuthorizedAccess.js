@@ -1,5 +1,5 @@
 
-//discards unauthorized access to admin
+//discards unauthorized req to admin
 export default function isUnauthorized(req,res,next){
 
     if(!req.user || req.user.access!='admin'){

@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import passport from 'passport';
 import passportLocal from './config/passport-local-strategy.js';
@@ -7,6 +10,8 @@ import MongoStore from 'connect-mongo';
 import cookieParser from 'cookie-parser';
 import ejs from 'ejs';
 import flash from 'connect-flash';
+
+
 
 import indexRouter from './routes/index.js';
 import db from './config/mongoose.js';

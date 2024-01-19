@@ -19,8 +19,6 @@ passport.use(new LocalStrategy({
                 return done(null, false);
             }
 
-            // req.flash('success', 'logged in');
-
             return done(null, user);
 
         }catch(err){
@@ -30,7 +28,6 @@ passport.use(new LocalStrategy({
       
     }
 ));
-
 
 
 // serializing the user to decide which key is to be kept in the cookies
@@ -74,9 +71,3 @@ passport.setAuthenticatedUser = function(req,res,next){
 }
 
 export default passport;
-
-
-
-
-
-

@@ -8,10 +8,6 @@ export default class AdminController {
 
         try {
 
-            if (req.user.access != 'admin') {     //handling unauthorized access
-                return res.send('<h1>unauthorized acess</h1>');
-            }
-
             const employees = await User.find({ access: 'user' }).select('-password');
             return res.render('admin', {
                 Title: 'admin page',
@@ -28,7 +24,7 @@ export default class AdminController {
     async assignReviewTask(req, res) {
         try {
 
-            if (req.body.reviewer_email == req.body.emp_email) {
+            if (req.body.reviewer_email == req.body.emp_email) {   //if reviewer and reviewee email are same
 
                 if (req.xhr) {                         //handling ajax request
                     return res.status(400).json({
@@ -59,8 +55,16 @@ export default class AdminController {
                 }
             }
 
+<<<<<<< HEAD
            // returns if reivew is already assigned to reviewer
             for(let toReviewid of reviewer.toReview){
+=======
+             // returns if reivew is already assigned to this reviewer
+            for(let toReviewid of reviewer.toReview){
+
+                console.log("hi");
+
+>>>>>>> a4bdaba (adding env file and changes in package.json script)
                 
                 if(toReviewid==employee.id){
                     return res.status(400).json({
@@ -172,7 +176,7 @@ export default class AdminController {
             if (user.email != req.body.email) {   //if email is to be changed
 
                 const existingUser = await User.findOne({ email: req.body.email });
-                if (existingUser) {        // check if given email is already registered with another user
+                if (existingUser) {        // check if new provided email is already registered with another user
 
                     if (req.xhr) {          // handle ajax request
                         return res.status(400).json({
@@ -348,16 +352,15 @@ export default class AdminController {
         }
     }
 
-
-    
-
     //  _________________________________deleting review____________________________________________________
     async deleteReview(req, res) {
 
         try {
             const review = await Review.findOne({ _id: req.params.id });  //finding review
+
             const empId = review.employee;                  // storing empId of employee to whom review belongs
             const employee = await User.findById(empId);    //finding employee using empId
+            
             employee.reviews.pull(review.id);              // removing review id from employee reviews array
             review.deleteOne();                       // deleting review
           
