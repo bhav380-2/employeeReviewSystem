@@ -55,16 +55,8 @@ export default class AdminController {
                 }
             }
 
-<<<<<<< HEAD
            // returns if reivew is already assigned to reviewer
             for(let toReviewid of reviewer.toReview){
-=======
-             // returns if reivew is already assigned to this reviewer
-            for(let toReviewid of reviewer.toReview){
-
-                console.log("hi");
-
->>>>>>> a4bdaba (adding env file and changes in package.json script)
                 
                 if(toReviewid==employee.id){
                     return res.status(400).json({

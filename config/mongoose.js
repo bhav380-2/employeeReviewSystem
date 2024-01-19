@@ -1,9 +1,9 @@
-import dotenv from require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 import mongoose from 'mongoose';
 
 // connecting to mongodb
-mongoose.connect(MONG_URL);
+mongoose.connect(process.env.MONGO_URL);
 
 const db = mongoose.connection;  //storing connection status in db
 

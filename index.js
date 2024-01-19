@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 dotenv.config();
-
 import express from 'express';
 import passport from 'passport';
 import passportLocal from './config/passport-local-strategy.js';
