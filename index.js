@@ -52,7 +52,7 @@ app.use(session({
     },
 
     store : MongoStore.create({          //storing user session in db
-            mongoUrl: 'mongodb://localhost/employeeReviewSystem',
+            mongoUrl: MONGO_URL,
             autoRemove: 'disabled'
         },
         function(err){
